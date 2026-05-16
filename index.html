@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Станция 1</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f6fb;
+    margin:0;
+    padding:0;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+    padding:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    box-sizing:border-box;
+}
+
+button{
+    margin-top:10px;
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    background:#1f2a44;
+    color:white;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:10px;
+    font-weight:bold;
+}
+
+.code{
+    margin-top:10px;
+    font-size:20px;
+    letter-spacing:3px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h2>🚩 Станция 1: Сборы в дорогу</h2>
+
+<p><b>Задание:</b> Выберите предметы так, чтобы общий вес чемодана вместе с вещами был 10 кг. Чемодан сам по себе весит 2,5 кг.</p>
+
+<table>
+<tr>
+<th>📦 Предмет</th>
+<th>⚖️ Вес (кг)</th>
+</tr>
+<tr><td>💻 Ноутбук</td><td>1,7</td></tr>
+<tr><td>🎥 Камера со штативом</td><td>1,5</td></tr>
+<tr><td>🎤 Микрофон</td><td>0,3</td></tr>
+<tr><td>🔋 Пауэрбанк</td><td>0,8</td></tr>
+<tr><td>📷 Фотоаппарат</td><td>1,2</td></tr>
+<tr><td>👕 Одежда</td><td>2,8</td></tr>
+<tr><td>📱 Телефон</td><td>0,4</td></tr>
+<tr><td>🎧 Наушники</td><td>0,2</td></tr>
+</table>
+
+<p>
+<b>Вопрос:</b> какие 2 предмета нужно убрать, чтобы общий вес чемодана стал ровно 10 кг? Введите разницу между самым тяжёлым и самым лёгким из убранных предметов.
+</p>
+
+<input id="answer" placeholder="введите ответ">
+<button onclick="check()">Проверить</button>
+
+<div class="result" id="result"></div>
+<div class="code" id="code"></div>
+
+</div>
+
+</div>
+
+<script>
+function normalize(str){
+    return str.toLowerCase().replace(/\s/g,'').replace(',', '.');
+}
+
+function isCorrect(ans){
+    let correct = "1";
+    return normalize(ans) === correct;
+}
+
+function check(){
+    let ans = document.getElementById("answer").value;
+    let result = document.getElementById("result");
+    let code = document.getElementById("code");
+
+    if(isCorrect(ans)){
+        result.innerHTML = "✔ Верно!";
+        code.innerHTML = "Код: Ла";
+    } else {
+        result.innerHTML = "✘ Неверно. Попробуй ещё раз!";
+        code.innerHTML = "";
+    }
+}
+
+// TEST CASES
+console.assert(isCorrect("1") === true, "Test 1 failed");
+console.assert(isCorrect("1,0") === true, "Test 2 failed");
+console.assert(isCorrect("1.0") === true, "Test 3 failed");
+
+</script>
+
+</body>
+</html>
