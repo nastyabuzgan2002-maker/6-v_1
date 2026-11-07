@@ -63,6 +63,19 @@ button{
     font-size:20px;
     letter-spacing:3px;
 }
+.team-label{
+    display:inline-block;
+    margin:5px 0 12px;
+    padding:8px 16px;
+    background:#e8f5ee;
+    border:1px solid #b8ddc5;
+    border-radius:20px;
+    color:#176b50;
+    font-size:15px;
+    font-weight:bold;
+}
+    
+    
 </style>
 </head>
 
@@ -71,7 +84,7 @@ button{
 <div class="container">
 
 <div class="card">
-
+<div class="team-label">👥 Команда 2 · 6-Б класс</div>
 <h2>🚩 Станция 1: Сборы в дорогу</h2>
 
 <p><b>Задание:</b> Выберите предметы так, чтобы общий вес чемодана вместе с вещами был 10 кг. Чемодан сам по себе весит 2,5 кг.</p>
@@ -122,7 +135,7 @@ function check(){
 
     if(isCorrect(ans)){
         result.innerHTML = "✔ Верно!";
-        code.innerHTML = "Код: Ла";
+        code.innerHTML = "Код: мате";
     } else {
         result.innerHTML = "✘ Неверно. Попробуй ещё раз!";
         code.innerHTML = "";
